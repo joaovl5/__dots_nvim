@@ -1,48 +1,57 @@
-local add, later = MiniDeps.add, MiniDeps.later
-local now_or_later = _G.Config.now_or_later
+local add, now = MiniDeps.add, MiniDeps.later
 
-now_or_later(function()
+local languages = {
+  'lua',
+  'vimdoc',
+  'markdown',
+  'python',
+  'javascript',
+  'jsx',
+  'typescript',
+  'tsx',
+  'html',
+  'css',
+  'scss',
+  'csv',
+  'norg',
+  'norg_meta',
+}
+
+local install_dir = vim.fn.stdpath 'data' .. '/site'
+
+function ts_update()
+  vim.notify('Updating Treesitter', vim.log.levels.INFO)
+  vim.cmd 'TSUpdate'
+  vim.notify('Updated Treesitter', vim.log.levels.INFO)
+end
+
+local isnt_installed = function(lang)
+  return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
+end
+
+now(function()
+  -- Use `main` branch since `master` branch is frozen, yet still default
   add {
     source = 'nvim-treesitter/nvim-treesitter',
-    -- Use `main` branch since `master` branch is frozen, yet still default
     checkout = 'main',
-    -- Update tree-sitter parser after plugin is updated
     hooks = {
-      post_checkout = function()
-        vim.cmd 'TSUpdate'
-      end,
+      post_checkout = ts_update,
     },
   }
   add {
     source = 'nvim-treesitter/nvim-treesitter-textobjects',
-    -- Same logic as for 'nvim-treesitter'
     checkout = 'main',
   }
 
-  -- define langs
-  local languages = {
-    'lua',
-    'vimdoc',
-    'markdown',
-    'python',
-    'javascript',
-    'jsx',
-    'typescript',
-    'tsx',
-    'html',
-    'css',
-    'scss',
-    'csv',
-  }
-  local isnt_installed = function(lang)
-    return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
-  end
+  local treesitter = require 'nvim-treesitter'
+
+  -- install languages that aren't installed
   local to_install = vim.tbl_filter(isnt_installed, languages)
   if #to_install > 0 then
-    require('nvim-treesitter').install(to_install)
+    treesitter.install(to_install)
   end
 
-  -- Enable tree-sitter after opening a file for a target language
+  -- enable tree-sitter after opening a file for a target language
   local filetypes = {}
   for _, lang in ipairs(languages) do
     for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
@@ -53,4 +62,8 @@ now_or_later(function()
     vim.treesitter.start(ev.buf)
   end
   _G.Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
+
+  -- treesitter.setup {
+  --   install_dir = install_dir,
+  -- }
 end)

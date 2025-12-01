@@ -25,6 +25,29 @@ _G.Config.themes = {
     post_add = nil,
     names = { 'eldritch', 'eldritch-dark', 'eldritch-minimal' },
   },
+  {
+    source = 'MarkChuCarroll/mlavender',
+    post_add = nil,
+    names = { 'mlavender' },
+  },
+  {
+    source = 'uhs-robert/oasis.nvim',
+    post_add = nil,
+    names = {
+      'oasis-midnight',
+      'oasis-abyss',
+      'oasis-starlight',
+      'oasis-desert',
+      'oasis-sol',
+      'oasis-canyon',
+      'oasis-dune',
+      'oasis-cactus',
+      'oasis-mirage',
+      'oasis-lagoon',
+      'oasis-twilight',
+      'oasis-rose',
+    },
+  },
 }
 
 now_or_later(function()

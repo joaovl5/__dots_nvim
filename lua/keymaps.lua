@@ -49,6 +49,7 @@ _G.Config.leader_spec = {
   { '<Leader>o', group = '+Other' },
   { '<Leader>s', group = '+Session' },
   { '<Leader>v', group = '+Visits' },
+  { '<Leader>e', group = '+Explore' },
 }
 
 -- w is for 'Window'
@@ -81,6 +82,62 @@ local fuzzy_at_file = '<Cmd>lua require("fff").find_files_in_dir(vim.api.nvim_bu
 nmap_leader('e', '<Cmd>lua MiniFiles.open()<CR>', 'Directory')
 nmap_leader('E', explore_at_file, 'File Directory')
 nmap_leader('on', '<Cmd>lua MiniNotify.show_history()<CR>', 'Notifications')
+-- explore -> minifiles windows keymaps
+_G.MiniFilesMappings = {
+  close = 'q',
+  go_in = 'l',
+  go_in_plus = 'L',
+  go_out = 'h',
+  go_out_plus = 'H',
+  mark_goto = "'",
+  mark_set = 'm',
+  reset = '<BS>',
+  reveal_cwd = '@',
+  show_help = 'g?',
+  synchronize = '=',
+  trim_left = '<',
+  trim_right = '>',
+}
+-- toggle hidden and other functions
+local show_dotfiles = true
+local filter_show = function(fs_entry)
+  return true
+end
+
+local filter_hide = function(fs_entry)
+  -- hide dotfiles except .env
+  return not vim.startswith(fs_entry.name, '.') or vim.endswith(fs_entry.name, '.env')
+end
+
+local toggle_dotfiles = function()
+  show_dotfiles = not show_dotfiles
+  local new_filter = show_dotfiles and filter_show or filter_hide
+  MiniFiles.refresh { content = { filter = new_filter } }
+end
+
+-- Set focused directory as current working directory
+local set_cwd = function()
+  local path = (MiniFiles.get_fs_entry() or {}).path
+  if path == nil then
+    return vim.notify 'Cursor is not on valid entry'
+  end
+  vim.fn.chdir(vim.fs.dirname(path))
+end
+
+-- Open path with system default handler (useful for non-text files)
+local ui_open = function()
+  vim.ui.open(MiniFiles.get_fs_entry().path)
+end
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MiniFilesBufferCreate',
+  callback = function(args)
+    local buf_id = args.data.buf_id
+    vim.keymap.set('n', '<leader>bh', toggle_dotfiles, { buffer = buf_id, desc = 'Toggle Hidden Files' })
+    vim.keymap.set('n', '<leader>bS', set_cwd, { buffer = buf_id, desc = 'Set focused dir as CWD' })
+    vim.keymap.set('n', '<leader>bO', ui_open, { buffer = buf_id, desc = 'Open file w/ system handler' })
+  end,
+})
 
 -- f is for 'Fuzzy Find'
 -- All these use 'mini.pick'. See `:h MiniPick-overview` for an overview.

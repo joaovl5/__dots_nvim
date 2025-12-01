@@ -15,11 +15,6 @@ require 'plugins.mini.trailspace'
 -- require 'plugins.mini.indent'
 require 'plugins.telescope'
 require 'plugins.indent'
--- TODO: notifier
--- TODO: starter
--- TODO: statusline
--- TODO: theme picker
--- TODO: hover
 require 'plugins.treesitter'
 require 'plugins.lsp.index'
 require 'plugins.editor.index'
@@ -31,3 +26,4 @@ require 'plugins.terminal'
 require 'plugins.avante'
 require 'plugins.store'
 require 'plugins.remote'
+require 'plugins.neorg.index'
