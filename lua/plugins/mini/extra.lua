@@ -1,5 +1,1 @@
-local later = MiniDeps.later
-
-later(function()
-  require('mini.extra').setup {}
-end)
+require('mini.extra').setup {}

@@ -129,7 +129,5 @@ local diagnostic_opts = {
   update_in_insert = false,
 }
 
--- Use `later()` to avoid sourcing `vim.diagnostic` on startup
-MiniDeps.later(function()
-  vim.diagnostic.config(diagnostic_opts)
-end)
+-- todo lazy load
+vim.diagnostic.config(diagnostic_opts)

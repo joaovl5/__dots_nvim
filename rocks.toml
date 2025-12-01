@@ -1,0 +1,301 @@
+import = ["rocks-treesitter.toml"]
+# This is your rocks.nvim plugins declaration file.
+# Here is a small yet pretty detailed example on how to use it:
+#
+# [plugins]
+# nvim-treesitter = "semver_version"  # e.g. "1.0.0"
+
+# List of non-Neovim rocks.
+# This includes things like `toml` or other lua packages.
+[rocks]
+
+[config]
+plugins_dir = "plugins/" # relative to ./lua
+
+# List of Neovim plugins to install alongside their versions.
+# If the plugin name contains a dot then you must add quotes to the key name!
+[plugins]
+"rocks.nvim" = "2.46.1"
+"rocks-git.nvim" = "2.5.7"
+"rocks-config.nvim" = "3.1.2"
+
+[plugins."snacks.nvim"]
+git = "folke/snacks.nvim"
+rev = "v2.30.0"
+
+[plugins."mini.nvim"]
+git = "nvim-mini/mini.nvim"
+rev = "94cae4660a8b2d95dbbd56e1fbc6fcfa2716d152"
+branch = "stable"
+
+[plugins."plenary.nvim"]
+git = "nvim-lua/plenary.nvim"
+rev = "v0.1.4"
+
+[plugins."telescope.nvim"]
+git = "nvim-telescope/telescope.nvim"
+rev = "v0.2.0"
+
+[plugins."popup.nvim"]
+git = "nvim-lua/popup.nvim"
+rev = "b7404d35d5d3548a82149238289fa71f7f6de4ac"
+
+[plugins.telescope-zoxide]
+git = "jvgrootveld/telescope-zoxide"
+rev = "v2.1"
+
+[plugins."indent-blankline.nvim"]
+git = "lukas-reineke/indent-blankline.nvim"
+rev = "v3.9.0"
+
+[plugins."mason.nvim"]
+git = "mason-org/mason.nvim"
+rev = "v2.1.0"
+
+[plugins."mason-lspconfig.nvim"]
+git = "mason-org/mason-lspconfig.nvim"
+rev = "v2.1.0"
+
+
+
+[plugins."mason-tool-installer.nvim"]
+git = "whoissethdaniel/mason-tool-installer.nvim"
+rev = "517ef5994ef9d6b738322664d5fdd948f0fdeb46"
+
+[plugins.friendly-snippets]
+git = "rafamadriz/friendly-snippets"
+rev = "572f5660cf05f8cd8834e096d7b4c921ba18e175"
+
+[plugins.blink-cmp]
+git = "saghen/blink.cmp"
+rev = "v1.8.0"
+build = "cargo build --release"
+
+[plugins."colorful-menu.nvim"]
+git = "xzbdmw/colorful-menu.nvim"
+rev = "b51a659459df8d078201aefc995db8175ed55e84"
+
+[plugins."blink.compat"]
+git = "saghen/blink.compat"
+rev = "v2.5.0"
+
+[plugins.nvim-lspconfig]
+git = "neovim/nvim-lspconfig"
+rev = "v2.5.0"
+
+[plugins."schemastore.nvim"]
+git = "b0o/schemastore.nvim"
+rev = "5f2299987a1937612c910f00db39156bab6a6b35"
+
+[plugins."conform.nvim"]
+git = "stevearc/conform.nvim"
+rev = "v9.1.0"
+
+[plugins."garbage-day.nvim"]
+git = "zeioth/garbage-day.nvim"
+rev = "v1.3.1"
+
+[plugins."lazydev.nvim"]
+git = "folke/lazydev.nvim"
+rev = "v1.10.0"
+
+[plugins."typescript-tools.nvim"]
+git = "pmizio/typescript-tools.nvim"
+rev = "c2f5910074103705661e9651aa841e0d7eea9932"
+
+[plugins."swenv.nvim"]
+git = "acksld/swenv.nvim"
+rev = "4157de2619ec2e5c61c103fb6517845a0e04e558"
+
+[plugins."markview.nvim"]
+git = "oxy2dev/markview.nvim"
+branch = "v27.0.0"
+
+[plugins.fff]
+git = "dmtrKovalenko/fff.nvim"
+rev = "v0.1.0-ee574a7"
+build = "cargo build --release"
+
+[plugins.nvim-spider]
+git = "chrisgrieser/nvim-spider"
+rev = "f56f16a686cccb957db2be61a1dba4a85b32a934"
+
+[plugins."leap.nvim"]
+git = "ggandor/leap.nvim"
+rev = "3c49d309d49d66a9feb0dd824353f186b3ee5efa"
+
+[plugins.nvim-treesitter]
+git = "nvim-treesitter/nvim-treesitter"
+rev = "00c906abb9550e72bc0c640545b5499b9525bb40"
+branch = "main"
+
+[plugins.nvim-treesitter-textobjects]
+git = "nvim-treesitter/nvim-treesitter-textobjects"
+rev = "63c4dce4a56312ef1bdeafd16bdefa008fcc950a"
+branch = "main"
+
+[plugins."comfy-line-numbers.nvim"]
+git = "mluders/comfy-line-numbers.nvim"
+rev = "3c51fa4104b97ddaccb66a6b34552e3eafd5b645"
+
+[plugins.vim-repeat]
+git = "tpope/vim-repeat"
+rev = "v1.2"
+
+[plugins."bim.nvim"]
+git = "sontungexpt/bim.nvim"
+rev = "b47d4eead624de1beae78ce30b4b8c151d217111"
+
+[plugins."filler-begone.nvim"]
+git = "saghen/filler-begone.nvim"
+rev = "122018c0f54519b9ee16fb0e31b96989a7682e1c"
+
+[plugins."smart-backspace.nvim"]
+git = "qwavies/smart-backspace.nvim"
+rev = "86d4b09b18933c96454f36c5a0b8afdb5cabf7ed"
+
+[plugins.neogen]
+git = "danymat/neogen"
+rev = "2.20.0"
+
+[plugins.pretty_hover]
+git = "fildo7525/pretty_hover"
+rev = "v2.0.3"
+
+[plugins."tiny-code-action.nvim"]
+git = "rachartier/tiny-code-action.nvim"
+rev = "188122ee2ea278eb74f55c6d39b5f6b5f8eefe8c"
+
+[plugins."glance.nvim"]
+git = "dnlhc/glance.nvim"
+rev = "bf86d8b79dce808e65fdb6e9269d0b4ed6d2eefc"
+
+[plugins.nvim-navbuddy]
+git = "smiteshp/nvim-navbuddy"
+rev = "a34786c77a528519f6b8a142db7609f6e387842d"
+
+[plugins.nvim-navic]
+git = "smiteshp/nvim-navic"
+rev = "7d914a39a1ef8f4e22c2c4381abeef7c556f5a13"
+
+[plugins."nui.nvim"]
+git = "muniftanjim/nui.nvim"
+rev = "0.4.0"
+
+[plugins."comment.nvim"]
+git = "numtostr/comment.nvim"
+rev = "v0.8.0"
+
+[plugins."noice.nvim"]
+git = "folke/noice.nvim"
+rev = "v4.10.0"
+
+[plugins."slimline.nvim"]
+git = "sschleemilch/slimline.nvim"
+rev = "v2.7.0"
+
+[plugins."reactive.nvim"]
+git = "rasulomaroff/reactive.nvim"
+rev = "v1.2.1"
+
+[plugins."nvim-colorizer.lua"]
+git = "catgoose/nvim-colorizer.lua"
+rev = "81e676d3203c9eb6e4c0ccf1eba1679296ef923f"
+
+[plugins."which-key.nvim"]
+git = "folke/which-key.nvim"
+rev = "v3.17.0"
+
+[plugins."oasis.nvim"]
+git = "uhs-robert/oasis.nvim"
+rev = "v3.0.0"
+
+[plugins."themery.nvim"]
+git = "zaldih/themery.nvim"
+rev = "v2.0.1"
+
+[plugins."toggleterm.nvim"]
+git = "akinsho/toggleterm.nvim"
+rev = "v2.13.1"
+config = {}
+
+[plugins."avante.nvim"]
+git = "yetone/avante.nvim"
+rev = "v0.0.27"
+build = "make"
+
+[plugins."img-clip.nvim"]
+git = "hakonharnes/img-clip.nvim"
+rev = "v0.6.0"
+config = {}
+
+[plugins."store.nvim"]
+git = "alex-popov-tech/store.nvim"
+rev = "v3.0"
+
+[plugins."remote-sshfs.nvim"]
+git = "nosduco/remote-sshfs.nvim"
+rev = "v0.7.2"
+
+[bundles.completions]
+items = [
+  "blink-cmp",
+  "blink.compat",
+  "friendly-snippets",
+  "colorful-menu.nvim",
+]
+config = "plugins.completions"
+
+[bundles.lsp]
+items = [
+  "nvim-lspconfig",
+  "schemastore.nvim",
+  "garbage-day.nvim",
+  "lazydev.nvim",
+  "typescript-tools.nvim",
+  "swenv.nvim",
+  "markview.nvim",
+]
+config = "plugins.lsp"
+
+[bundles.treesitter]
+items = [
+  "nvim-treesitter",
+  "nvim-treesitter-textobjects"
+]
+config = "plugins.treesitter"
+
+[bundles.mason]
+items = [
+  "mason.nvim",
+  "mason-lspconfig.nvim",
+  "mason-tool-installer.nvim",
+]
+config = "plugins.mason"
+
+[bundles.editor]
+items = [
+  "fff",
+  "comfy-line-numbers.nvim",
+  "leap.nvim",
+  "bim.nvim",
+  "filler-begone.nvim",
+  "smart-backspace.nvim",
+  "neogen",
+  "pretty_hover",
+  "tiny-code-action.nvim",
+  "glance.nvim",
+  "nvim-navbuddy",
+]
+config = "plugins.editor"
+
+[bundles.ui]
+items = [
+  "noice.nvim",
+  "slimline.nvim",
+  "reactive.nvim",
+  "nvim-colorizer.lua",
+]
+config = "plugins.ui"
+
+

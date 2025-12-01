@@ -1,5 +1,1 @@
-local later = MiniDeps.later
-
-later(function()
-  require('mini.pick').setup {}
-end)
+require('mini.pick').setup {}

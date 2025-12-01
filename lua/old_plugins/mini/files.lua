@@ -1,12 +1,15 @@
-require('mini.files').setup {
-  windows = {
-    preview = true,
-    width_focus = 60,
-    width_nofocus = 30,
-  },
-  -- todo fix _G
-  mappings = _G.MiniFilesMappings, -- see keymaps.lua
-}
+local later = MiniDeps.later
+
+later(function()
+  require('mini.files').setup {
+    windows = {
+      preview = true,
+      width_focus = 60,
+      width_nofocus = 30,
+    },
+    mappings = _G.MiniFilesMappings, -- see keymaps.lua
+  }
+end)
 
 -- customize window
 vim.api.nvim_create_autocmd('User', {
