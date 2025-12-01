@@ -1,0 +1,33 @@
+require 'plugins.snacks'
+require 'plugins.mini.basics'
+require 'plugins.mini.bufremove'
+require 'plugins.mini.icons'
+require 'plugins.mini.misc'
+require 'plugins.mini.extra'
+require 'plugins.mini.hipatterns'
+require 'plugins.mini.files'
+require 'plugins.mini.ai'
+require 'plugins.mini.git'
+require 'plugins.mini.map'
+require 'plugins.mini.pairs'
+require 'plugins.mini.pick'
+require 'plugins.mini.trailspace'
+-- require 'plugins.mini.indent'
+require 'plugins.telescope'
+require 'plugins.indent'
+-- TODO: notifier
+-- TODO: starter
+-- TODO: statusline
+-- TODO: theme picker
+-- TODO: hover
+require 'plugins.treesitter'
+require 'plugins.lsp.index'
+require 'plugins.editor.index'
+require 'plugins.ui.index'
+require 'plugins.whichkey'
+require 'plugins.themes'
+require 'plugins.themery'
+require 'plugins.terminal'
+require 'plugins.avante'
+require 'plugins.store'
+require 'plugins.remote'
